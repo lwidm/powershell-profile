@@ -1,8 +1,6 @@
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
-# Define the content to set the execution policy and initialize conda
-$profileContent = @"
 # Set execution policy to Unrestricted
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
@@ -16,17 +14,30 @@ function Test-CondaInstalled {
     }
 }
 
+# Function to install Miniconda
+function Install-Conda {
+    `$minicondaInstaller = 'Miniconda3-latest-Windows-x86_64.exe'
+    `$minicondaUrl = 'https://repo.anaconda.com/miniconda/' + `$minicondaInstaller
+    `$installerPath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), `$minicondaInstaller)
+    Invoke-WebRequest -Uri `$minicondaUrl -OutFile `$installerPath
+    Start-Process `$installerPath -ArgumentList '/InstallationType=JustMe', '/RegisterPython=0', '/S', '/D=$env:LOCALAPPDATA\Continuum\miniconda3' -Wait
+    Remove-Item `$installerPath -Force
+    `$condaPath = [System.IO.Path]::Combine(`$env:LOCALAPPDATA, 'Continuum', 'miniconda3', 'Scripts')
+    `$env:Path += ';' + `$condaPath
+    & `$condaPath\conda init powershell
+}
+
 # Check if Conda is installed
 if (-not (Test-CondaInstalled)) {
-    Write-Host 'Conda is not installed. Please install Conda from https://docs.conda.io/en/latest/miniconda.html' -ForegroundColor Yellow
+    Write-Host 'Conda is not installed. Installing Miniconda...' -ForegroundColor Yellow
+    Install-Conda
+    Write-Host 'Miniconda installed. Please restart your PowerShell session.' -ForegroundColor Green
 } else {
     # Initialize Conda
     `$condaScript = & "$([System.Environment]::GetEnvironmentVariable('CONDA_PREFIX') + '\etc\profile.d\conda_hook.ps1')" | Out-String
     Invoke-Expression `$condaScript
     conda activate base
 }
-"@
-
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
