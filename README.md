@@ -115,6 +115,7 @@ New-Item -ItemType SymbolicLink -Path Microsoft.PowerShell_profile.ps1 -Target .
 ```powershell
 conda init
 ```
+<!-- TODO -->
     4. close and reopen PowerShell
     5. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
@@ -141,7 +142,7 @@ First, install Neovim by following the official installation instructions from t
 ### 4. Install GNU Make using GnuWin32
 1. Download the GnuWin32 package for Make from [here](https://gnuwin32.sourceforge.net/packages/make.htm).
 2. Install Make by running the installer.
-3. Add Make to your system PATH. The default installation path is usually `C:\Program Files (x86)\GnuWin32\bin`.
+3. Add Make to your system PATH. The default installation path usually is: `C:\Program Files (x86)\GnuWin32\bin`.
 
 ### 5. Set Up Anaconda in PowerShell
 if you already setup anaconda this step isn't necessary
