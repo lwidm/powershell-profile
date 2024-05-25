@@ -17,8 +17,8 @@ function Test-CondaInstalled {
 # Function to install Miniconda
 function Install-Conda {
     `$minicondaInstaller = 'Miniconda3-latest-Windows-x86_64.exe'
-    `$minicondaUrl = 'https://repo.anaconda.com/miniconda/' + `$minicondaInstaller
-    `$installerPath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), `$minicondaInstaller)
+    `$minicondaUrl = 'https://repo.anaconda.com/miniconda/' + $minicondaInstaller
+    `$installerPath = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), $minicondaInstaller)
     Invoke-WebRequest -Uri `$minicondaUrl -OutFile `$installerPath
     Start-Process `$installerPath -ArgumentList '/InstallationType=JustMe', '/RegisterPython=0', '/S', '/D=$env:LOCALAPPDATA\Continuum\miniconda3' -Wait
     Remove-Item `$installerPath -Force
