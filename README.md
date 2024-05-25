@@ -2,13 +2,12 @@
 
 This repository sets up a powerful and visually appealing PowerShell environment, including automatic updating.
 Features:
-
-    Latest PowerShell (v7): Ensure top performance and features.
-    Custom Themes: Choose from Catppuccin themes like frappe, latte, macchiato, and mocha.
-    Prompt Enhancement: Oh My Posh beautifies your prompt effortlessly.
-    Python Management: Easily handle Python environments with Conda.
-    Custom Fonts: Install Hack Nerd Font for beautiful font and icon display.
-    Automatic Updating: Profile config performs seamless updates.
+    - Latest PowerShell (v7): Ensure top performance and features.
+    - Custom Themes: Choose from Catppuccin themes like frappe, latte, macchiato, and mocha.
+    - Prompt Enhancement: Oh My Posh beautifies your prompt effortlessly.
+    - Python Management: Easily handle Python environments with Conda.
+    - Custom Fonts: Install Hack Nerd Font for beautiful font and icon display.
+    - Automatic Updating: Profile config performs seamless updates.
 
 ## Setup Guide
 
