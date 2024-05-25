@@ -1,30 +1,32 @@
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
+# Define the content to set the execution policy and initialize conda
+$profileContent = @"
 # Set execution policy to Unrestricted
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 # Function to check if Conda is installed
 function Test-CondaInstalled {
     try {
-        conda --version > `$null 2>&1
-        return `$true
+        conda --version > $null 2>&1
+        return $true
     } catch {
-        return `$false
+        return $false
     }
 }
 
 # Check if Conda is installed
 if (-not (Test-CondaInstalled)) {
-    Write-Host 'Conda is not installed. Installing Miniconda...' -ForegroundColor Yellow
-    Install-Conda
-    Write-Host 'Miniconda installed. Please restart your PowerShell session.' -ForegroundColor Green
+    Write-Host 'Conda is not installed. Please install Conda from https://docs.conda.io/en/latest/miniconda.html' -ForegroundColor Yellow
 } else {
     # Initialize Conda
-    `$condaScript = & "$([System.Environment]::GetEnvironmentVariable('CONDA_PREFIX') + '\etc\profile.d\conda_hook.ps1')" | Out-String
-    Invoke-Expression `$condaScript
+    $condaScript = & "$([System.Environment]::GetEnvironmentVariable('CONDA_PREFIX') + '\etc\profile.d\conda_hook.ps1')" | Out-String
+    Invoke-Expression $condaScript
     conda activate base
 }
+"@
+
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
@@ -74,7 +76,7 @@ function Update-Profile {
             Write-Host "Profile has been updated. Please restart your shell to reflect changes" -ForegroundColor Magenta
         }
     } catch {
-        Write-Error "Unable to check for `$profile updates"
+        Write-Error "Unable to check for $profile updates"
     } finally {
         Remove-Item "$env:temp/Microsoft.PowerShell_profile.ps1" -ErrorAction SilentlyContinue
     }
