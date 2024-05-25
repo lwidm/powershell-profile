@@ -4,10 +4,10 @@ This repository sets up a powerful and visually appealing PowerShell environment
 Features:
 - Latest PowerShell (v7): Ensure top performance and features.
 - Custom Themes: Choose from Catppuccin themes like frappe, latte, macchiato, and mocha.
-- Prompt Enhancement: Oh My Posh beautifies your prompt effortlessly.
-- Python Management: Easily handle Python environments with Conda.
-- Custom Fonts: Install Hack Nerd Font for beautiful font and icon display.
-- Automatic Updating: Profile config performs seamless updates.
+- Prompt Enhancement: install Oh My Posh with the robbyrussel theme
+- Python Management: Setup and manage Anaconda.
+- Custom Fonts: Install Hack Nerd Font for easily readable text and icon display.
+- Automatic Updating: Profile config performs automatic updates buy syncing with the github repo.
 
 ## Setup Guide
 
@@ -54,8 +54,7 @@ For best results when upgrading, use the same install method you used when you f
 3. Set PowerShell to open in maximized mode.
 
 ### Catppuccin Theme
-
-Download the Catppuccin theme for PowerShell from GitHub and follow these instructions:
+Open the [Catppucin windows terminal github repo](https://github.com/catppuccin/windows-terminal) and follow these instructions:
 
 1. Launch Windows Terminal.
 2. Open the Settings panel (`Ctrl + ,`).
@@ -90,7 +89,7 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts
 
 
 
-### Git Configuration
+### Load and Setup Configurations
 Clone the repository for your PowerShell profile:
 
 1. Open powershell and run
@@ -116,7 +115,7 @@ New-Item -ItemType SymbolicLink -Path Microsoft.PowerShell_profile.ps1 -Target .
 ```powershell
 conda init
 ```
-        ... and closing and reopening PowerShell
+        and closing and reopening PowerShell
     4. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
 conda create -n testENv
@@ -160,7 +159,7 @@ if you already setup anaconda this step isn't necessary
 ```powershell
 conda init
 ```
-    ... and closing and reopening PowerShell
+    and closing and reopening PowerShell
 5. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
 conda create -n testENv
