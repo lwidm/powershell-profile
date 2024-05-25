@@ -158,7 +158,8 @@ if you already setup anaconda this step isn't necessary
 4. initialize anaconda by obening PowerShell and running
 ```powershell
 conda init
-5. close and reopen 
+```
+    ... and closing and reopening Powershell
 6. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
 conda create -n testENv
