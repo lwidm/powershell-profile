@@ -115,8 +115,8 @@ New-Item -ItemType SymbolicLink -Path Microsoft.PowerShell_profile.ps1 -Target .
 ```powershell
 conda init
 ```
-        and closing and reopening PowerShell
-    4. Create, activate and test whether conda environment is working. Open PowerShell and run
+    4. close and reopen PowerShell
+    5. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
 conda create -n testENv
 conda activate testEnv
@@ -158,9 +158,8 @@ if you already setup anaconda this step isn't necessary
 4. initialize anaconda by obening PowerShell and running
 ```powershell
 conda init
-```
-    and closing and reopening PowerShell
-5. Create, activate and test whether conda environment is working. Open PowerShell and run
+5. close and reopen 
+6. Create, activate and test whether conda environment is working. Open PowerShell and run
 ```powershell
 conda create -n testENv
 conda activate testEnv
