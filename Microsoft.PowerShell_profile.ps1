@@ -2,7 +2,6 @@
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
 # Define the content to set the execution policy and initialize conda
-$profileContent = @"
 # Set execution policy to Unrestricted
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
@@ -25,7 +24,6 @@ if (-not (Test-CondaInstalled)) {
     Invoke-Expression $condaScript
     conda activate base
 }
-"@
 
 
 # Import Modules and External Profiles
@@ -35,7 +33,9 @@ if (-not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 }
 Import-Module -Name Terminal-Icons
 
-
+if (-not (Get-Module -ListAvailable -Name Catppucin)) {
+    Install-Module -Name Catppucin -Scope CurrentUser -Force -SkipPublisherCheck
+}
 Import-Module Catppuccin
 $Flavor = $Catppuccin['Mocha']
 
