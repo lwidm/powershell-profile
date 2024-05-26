@@ -1,5 +1,6 @@
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
+$canConnectToGitHub = $false
 
 # Define the content to set the execution policy and initialize conda
 # Set execution policy to Unrestricted
@@ -18,13 +19,7 @@ function Test-CondaInstalled {
 # Check if Conda is installed
 if (-not (Test-CondaInstalled)) {
     Write-Host 'Conda is not installed. Please install Conda from https://docs.conda.io/en/latest/miniconda.html' -ForegroundColor Yellow
-} else {
-    # Initialize Conda
-    $condaScript = & "$([System.Environment]::GetEnvironmentVariable('CONDA_PREFIX') + '\etc\profile.d\conda_hook.ps1')" | Out-String
-    Invoke-Expression $condaScript
-    conda activate base
 }
-
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
