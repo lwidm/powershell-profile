@@ -1,6 +1,5 @@
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
-$canConnectToGitHub = $false
 
 # Define the content to set the execution policy and initialize conda
 # Set execution policy to Unrestricted
