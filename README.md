@@ -68,6 +68,15 @@ Open the [Catppucin windows terminal github repo](https://github.com/catppuccin/
 10. Choose your Catppuccin flavor in the **Color scheme** drop-down menu.
 11. Click on **Save**, enjoy!
 
+### Catppuccin for Powershell
+ Create a symbolic link
+    - Open powershell in administrator mode
+    - Run:
+```powershell
+cd ([System.IO.Path]::GetDirectoryName($PROFILE))
+New-Item -ItemType SymbolicLink -Path Catppuccin -Target .\powershell-profile\Catppuccin
+```
+
 ### Oh My Posh
 
 Install `oh-my-posh` using `winget`:
@@ -97,7 +106,7 @@ Clone the repository for your PowerShell profile:
 cd ([System.IO.Path]::GetDirectoryName($PROFILE))
 git clone https://github.com/lwidm/powershell-profile
 ```
-2. Create a symbolic lin
+2. Create a symbolic link
     - Open powershell in administrator mode
     - Run:
 ```powershell

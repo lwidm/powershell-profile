@@ -34,9 +34,6 @@ if (-not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 Import-Module -Name Terminal-Icons
 
 
-if (-not (Get-Module -ListAvailable -Name Catppuccin)) {
-    Install-Module -Name Catppuccin -Scope CurrentUser -Force -SkipPublisherCheck
-}
 Import-Module Catppuccin
 $Flavor = $Catppuccin['Mocha']
 
