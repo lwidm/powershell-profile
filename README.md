@@ -96,6 +96,7 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts
 .\install.ps1 Hack
 ```
 3. Open the widows terminal settings and set the Hack nerd font as the default font
+    - the font settings are located under the "Defaults" tab
 
 
 
@@ -133,6 +134,17 @@ conda create -n testENv
 conda activate testEnv
 conda info --envs
 ```
+
+### Setup Background
+1. open the explorer in the pwershell-profile direcotry
+```powershell
+cd ([System.IO.Path]::GetDirectoryName($PROFILE))
+cd powershell-profile
+explorer .
+```
+2. copy the direcotory path and append the correct file name (e.g. PowerShell_Hero_wallpaper\_4k\_1.jpg)
+3. Open the Settings panel (`Ctrl + ,`)
+4. under the "Defaults" tab navigate to the section "Background Image". Here you can set the background image path to the one obtained in the steps above and set the background opacity to 10%
 
 ## Setting Up Neovim on powershell
 
