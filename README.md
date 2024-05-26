@@ -74,7 +74,8 @@ Open the [Catppucin windows terminal github repo](https://github.com/catppuccin/
     - Run:
 ```powershell
 cd ([System.IO.Path]::GetDirectoryName($PROFILE))
-New-Item -ItemType SymbolicLink -Path Catppuccin -Target .\powershell-profile\Catppuccin
+cd Modules
+New-Item -ItemType SymbolicLink -Path "Catppuccin" -Target "..\powershell-profile\Catppuccin"
 ```
 
 ### Oh My Posh
