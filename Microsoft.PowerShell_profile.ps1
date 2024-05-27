@@ -27,26 +27,6 @@ if (-not (Get-Module -ListAvailable -Name Terminal-Icons)) {
 }
 Import-Module -Name Terminal-Icons
 
-
-Import-Module Catppuccin
-$Flavor = $Catppuccin['Mocha']
-
-function prompt {
-    $(if (Test-Path variable:/PSDebugContext) { "$($Flavor.Red.Foreground())[DBG]: " }
-      else { '' }) + "$($Flavor.Teal.Foreground())PS $($Flavor.Yellow.Foreground())" + $(Get-Location) +
-        "$($Flavor.Green.Foreground())" + $(if ($NestedPromptLevel -ge 1) { '>>' }) + '> ' + $($PSStyle.Reset)
-}
-
-# The following colors are used by PowerShell's formatting
-# Again PS 7.2+ only
-$PSStyle.Formatting.Debug = $Flavor.Sky.Foreground()
-$PSStyle.Formatting.Error = $Flavor.Red.Foreground()
-$PSStyle.Formatting.ErrorAccent = $Flavor.Blue.Foreground()
-$PSStyle.Formatting.FormatAccent = $Flavor.Teal.Foreground()
-$PSStyle.Formatting.TableHeader = $Flavor.Rosewater.Foreground()
-$PSStyle.Formatting.Verbose = $Flavor.Yellow.Foreground()
-$PSStyle.Formatting.Warning = $Flavor.Peach.Foreground()
-
 # Check for Profile Updates
 function Update-Profile {
     if (-not $global:canConnectToGitHub) {
