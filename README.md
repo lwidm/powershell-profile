@@ -68,16 +68,6 @@ Open the [Catppucin windows terminal github repo](https://github.com/catppuccin/
 10. Choose your Catppuccin flavor in the **Color scheme** drop-down menu.
 11. Click on **Save**, enjoy!
 
-### Catppuccin for Powershell
- Create a symbolic link
-    - Open powershell in administrator mode
-    - Run:
-```powershell
-cd ([System.IO.Path]::GetDirectoryName($PROFILE))
-cd Modules
-New-Item -ItemType SymbolicLink -Path "Catppuccin" -Target "..\powershell-profile\Catppuccin"
-```
-
 ### Oh My Posh
 
 Install `oh-my-posh` using `winget`:
