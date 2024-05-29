@@ -4,25 +4,13 @@
 		{
 			"alignment": "left",
 			"segments": [
-				{
-					"type": "text",
-					"style": "plain",
-					"properties": {
-						"text": "(\ue235 "
-					}
-				},
+				
 				{
 					"type": "python",
 					"style": "plain",
 					"properties": {
+						"format": "(\ue235 {0} )",
 						"display_mode": "always"
-					}
-				},
-				{
-					"type": "text",
-					"style": "plain",
-					"properties": {
-						"text": ") "
 					}
 				},
 				{
