@@ -53,7 +53,7 @@ function Update-Profile {
         Remove-Item "$env:temp/Microsoft.PowerShell_profile.ps1" -ErrorAction SilentlyContinue
     }
 }
-# Update-Profile
+Update-Profile
 
 $profile_path = ([System.IO.Path]::GetDirectoryName($PROFILE))
 $theme_path = "$profile_path/powershell-profile/oh-my-posh_themes/robbyrussel_lwidm.omp.json"
