@@ -5,12 +5,24 @@
 			"alignment": "left",
 			"segments": [
 				{
+					"type": "text",
+					"style": "plain",
+					"properties": {
+						"text": "(\ue235 "
+					}
+				},
+				{
 					"type": "python",
 					"style": "plain",
 					"properties": {
-						"prefix": "(\ue235 ",
-						"suffix": ") ",
-						"display_mode": "always" // Always show the Conda environment segment.
+						"display_mode": "always"
+					}
+				},
+				{
+					"type": "text",
+					"style": "plain",
+					"properties": {
+						"text": ") "
 					}
 				},
 				{
@@ -45,10 +57,7 @@
 				},
 				{
 					"type": "poshgit",
-					"style": "powerline",
-					"powerline_symbol": "\uE0B0",
-					"foreground": "#ffffff",
-					"background": "#0077c2",
+					"style": "plain",
 					"properties": {
 						"branch_icon": "\ue725", // Git branch icon.
 						"branch_symbol": "", // To avoid showing the branch symbol twice.
