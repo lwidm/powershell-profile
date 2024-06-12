@@ -74,3 +74,4 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 }
 
 New-Alias -Name ll -Value ls
+New-Alias -Name which -Value Get-Command
