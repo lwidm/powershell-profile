@@ -13,9 +13,12 @@ Features:
 
 This guide will help you set up your PowerShell profile with the latest version of PowerShell, a custom theme, and various useful tools.
 
+
 ### Install the Newest Version of PowerShell
 
 Ensure you have PowerShell 7 installed. You can install it using `winget`:
+
+(If winget is not available on your system you might have to install the [App Installer](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=en-ch&gl=CH#activetab=pivot:overviewtab) from the microsoft store)
 
 1. **Search for PowerShell:**
     ```powershell
@@ -47,6 +50,17 @@ For best results when upgrading, use the same install method you used when you f
     winget list --name PowerShell --upgrade-available
     ```
 
+
+### Install Git
+#### Using winget:
+```Powershell
+winget install --id Git.Git -e --source winget
+```
+#### Using a standalone installer:
+- visit the [official git downloads page for windows](https://git-scm.com/download/win)
+- Download the latest git version for your system
+
+
 ### Initial Setup Using Settings GUI
 
 1. Right-click a new PowerShell window and select **Settings**.
@@ -66,7 +80,9 @@ Open the [Catppucin windows terminal github repo](https://github.com/catppuccin/
 8. In the Settings panel under **Profiles**, select the profile you want to apply the theme to. Defaults will apply the theme to all profiles.
 9. Select **Appearance**.
 10. Choose your Catppuccin flavor in the **Color scheme** drop-down menu.
-11. Click on **Save**, enjoy!
+11. Click on **Save**
+12. Under the Defaults tab go to **Appearance** and select the catppuccin colorscheme.
+13. Click **Save**
 
 ### Oh My Posh
 
@@ -74,6 +90,12 @@ Install `oh-my-posh` using `winget`:
 
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh -s winget
+```
+
+### Unresticted Execution Policy
+Open Powershell in Administrator mode and run
+```Powershell
+Set-ExecutionPolicy Unrestricted
 ```
 
 ### Hack nerd font
