@@ -75,3 +75,11 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 
 New-Alias -Name ll -Value ls
 New-Alias -Name which -Value Get-Command
+
+# create equivalent of sudo command in linux
+function sudo {
+    param(
+        [string]$command
+    )
+    Start-Process powershell -ArgumentList "-Command $command" -Verb RunAs
+}
