@@ -76,6 +76,28 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 New-Alias -Name ll -Value ls
 New-Alias -Name which -Value Get-Command
 
+function rm {
+    param (
+        [string]$Path,
+        [switch]$Recurse,
+        [switch]$Force
+    )
+
+    if ($Recurse -and $Force) {
+        Remove-Item -Path $Path -Recurse -Force
+    }
+    elseif ($Recurse) {
+        Remove-Item -Path $Path -Recurse
+    }
+    elseif ($Force) {
+        Remove-Item -Path $Path -Force
+    }
+    else {
+        Remove-Item -Path $Path
+    }
+}
+
+
 # create equivalent of sudo command in linux
 function sudo {
     param(
