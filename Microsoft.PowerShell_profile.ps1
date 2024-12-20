@@ -78,7 +78,7 @@ New-Alias -Name which -Value Get-Command
 
 function rmrf {
     param (
-        [string]$Path,
+        [string]$Path
     )
     Remove-Item -Recurse -Force -Path $Path
 }
