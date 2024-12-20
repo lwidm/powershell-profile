@@ -1,5 +1,3 @@
-# Initial GitHub.com connectivity check with 1 second timeout
-$canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
 # Define the content to set the execution policy and initialize conda
 # Set execution policy to Unrestricted
@@ -29,7 +27,9 @@ Import-Module -Name Terminal-Icons
 
 # Check for Profile Updates
 function Update-Profile {
-    if (-not $global:canConnectToGitHub) {
+    # Initial GitHub.com connectivity check with 1 second timeout
+    $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
+    if (-not $canConnectToGitHub) {
         Write-Host "Skipping profile update check due to GitHub.com not responding within 1 second." -ForegroundColor Yellow
         return
     }
@@ -53,7 +53,7 @@ function Update-Profile {
         Remove-Item "$env:temp/Microsoft.PowerShell_profile.ps1" -ErrorAction SilentlyContinue
     }
 }
-Update-Profile
+# Update-Profile
 
 $profile_path = ([System.IO.Path]::GetDirectoryName($PROFILE))
 $theme_path = "$profile_path/powershell-profile/oh-my-posh_themes/robbyrussel_lwidm.omp.json"

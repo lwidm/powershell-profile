@@ -1,70 +1,79 @@
 {
-	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-	"blocks": [
-		{
-			"alignment": "left",
-			"segments": [
-				
-				{
-					"type": "python",
-					"style": "plain",
-					"properties": {
-						"format": "(\ue235 {0} )",
-						"display_mode": "always"
-					}
-				},
-				{
-					"foreground": "#98C379",
-					"style": "plain",
-					"template": "\u279c",
-					"type": "text"
-				},
-				{
-					"foreground": "#56B6C2",
-					"properties": {
-						"style": "folder"
-					},
-					"style": "plain",
-					"template": " {{ .Path }} ",
-					"type": "path"
-				},
-				{
-					"foreground": "#D0666F",
-					"properties": {
-						"branch_icon": ""
-					},
-					"style": "plain",
-					"template": "<#5FAAE8>git:(</>{{ .HEAD }}<#5FAAE8>)</>",
-					"type": "git"
-				},
-				{
-					"foreground": "#BF616A",
-					"style": "plain",
-					"template": " \u2717",
-					"type": "status"
-				},
-				{
-					"type": "poshgit",
-					"style": "plain",
-					"properties": {
-						"branch_icon": "\ue725", // Git branch icon.
-						"branch_symbol": "", // To avoid showing the branch symbol twice.
-						"ahead_icon": "\u2191", // Icon for commits ahead.
-						"behind_icon": "\u2193", // Icon for commits behind.
-						"untracked_icon": "\u25CF", // Icon for untracked files.
-						"staged_icon": "\u2714", // Checkmark icon for staged changes.
-						"unstaged_icon": "\u2718", // Cross icon for unstaged changes.
-						"working_color": "#ff0000", // Red color for unstaged changes.
-						"staging_color": "#00ff00", // Green color for staged changes.
-						"ahead_color": "#ffcc00", // Yellow color for commits ahead.
-						"behind_color": "#00ccff", // Blue color for commits behind.
-						"untracked_color": "#999999" // Grey color for untracked files.
-					}
-				}
-			],
-			"type": "prompt"
-		}
-	],
-	"final_space": true,
-	"version": 2
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "always",
+            "format": "(\ue235 {0} )"
+          },
+          "type": "python",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "➜",
+          "foreground": "#98C379",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "folder"
+          },
+          "template": " {{ .Path }} ",
+          "foreground": "#56B6C2",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "cache_duration": "none"
+          },
+          "template": "<#5FAAE8>git:(</>{{ .HEAD }}<#5FAAE8>)</>",
+          "foreground": "#D0666F",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ✗",
+          "foreground": "#BF616A",
+          "type": "status",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "ahead_color": "#ffcc00",
+            "ahead_icon": "\u2191",
+            "behind_color": "#00ccff",
+            "behind_icon": "\u2193",
+            "branch_icon": "\ue725",
+            "branch_symbol": "",
+            "cache_duration": "none",
+            "staged_icon": "✔",
+            "staging_color": "#00ff00",
+            "unstaged_icon": "✘",
+            "untracked_color": "#999999",
+            "untracked_icon": "\u25cf",
+            "working_color": "#ff0000"
+          },
+          "type": "poshgit",
+          "style": "plain"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
 }
