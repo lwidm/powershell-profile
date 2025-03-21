@@ -4,19 +4,19 @@
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 # Function to check if Conda is installed
-function Test-CondaInstalled {
-    try {
-        conda --version > $null 2>&1
-        return $true
-    } catch {
-        return $false
-    }
-}
+# function Test-CondaInstalled {
+#     try {
+#         conda --version > $null 2>&1
+#         return $true
+#     } catch {
+#         return $false
+#     }
+# }
 
 # Check if Conda is installed
-if (-not (Test-CondaInstalled)) {
-    Write-Host 'Conda is not installed. Please install Conda from https://docs.conda.io/en/latest/miniconda.html' -ForegroundColor Yellow
-}
+# if (-not (Test-CondaInstalled)) {
+#     Write-Host 'Conda is not installed. Please install Conda from https://docs.conda.io/en/latest/miniconda.html' -ForegroundColor Yellow
+# }
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
@@ -74,6 +74,7 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 }
 
 New-Alias -Name ll -Value ls
+New-Alias -Name python3 -Value python
 New-Alias -Name which -Value Get-Command
 
 function rmrf {
